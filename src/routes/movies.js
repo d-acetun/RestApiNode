@@ -4,6 +4,7 @@ const movies = require('../sample.json');
 // console.log(movies);
 const router = Router();
 router.get('/', (req, res) => {
+  
   res.json(movies);
 });
 
@@ -11,7 +12,7 @@ router.post('/', (req, res) => {
   console.log(req.body);
   const { title, director, year, rating } = req.body;
   if (title && director && year && rating) {
-    const newMovie = {...req.body, id: movies.length + 1};
+    const newMovie = {id: (movies[movies.length-1].id + 1), ...req.body};
     movies.push(newMovie);
     res.send('movie added');
   } else {
@@ -34,10 +35,11 @@ router.delete('/:id', (req, res) => {
 
 router.put('/:id', (req, res) => {
   const { id } = req.params;
+  
   const { title, director, year, rating } = req.body;
   const index = movies.findIndex(movie => movie.id === Number(id));
   if (index !== -1) {
-    movies[index] = { id, title, director, year, rating};
+    movies[index] = { id: Number(id), title, director, year, rating};
     res.send('movie updated');
   } else {
     res.send('movie not found');

@@ -8,7 +8,6 @@ POST {{api}}
 Content-Type: application/json
 
 {
-    "id": 21,
     "title": "Creada",
     "director": "Bean",
     "year": 1910,
