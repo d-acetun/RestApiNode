@@ -1,8 +1,8 @@
-const { Router } = require('express');
-
-const movies = require('../sample.json');
-// console.log(movies);
+import { Router } from 'express';
+import movies from '../sample.js';
 const router = Router();
+
+// console.log(movies);
 router.get('/', (req, res) => {
   
   res.json(movies);
@@ -46,4 +46,4 @@ router.put('/:id', (req, res) => {
   }
 });
 
-module.exports = router;
+export default router;

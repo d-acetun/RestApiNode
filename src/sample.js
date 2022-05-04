@@ -1,4 +1,4 @@
-[
+const movies = [
   {
     "id": 1,
     "title": "Fun in Acapulco",
@@ -140,3 +140,5 @@
     "rating": 1.9
   }
 ]
+
+export default movies;

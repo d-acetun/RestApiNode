@@ -1,6 +1,9 @@
-const express = require('express');
+import express from 'express';
+import morgan from 'morgan';
+// import { router } from './routes/movies';
 const app = express();
-const morgan = require('morgan');
+import router  from './routes/movies.js';
+
 
 //settings
 app.set('port', process.env.PORT || 3000);
@@ -12,8 +15,8 @@ app.use(express.urlencoded({extended: false}));
 app.use(express.json());
 
 //routes
-app.use(require('./routes/index'));
-app.use('/api/movies', require('./routes/movies'));
+// app.use(require('./routes/index'));
+app.use('/api/movies', router);
 //start the server
 app.listen(app.get('port'), () => {
   console.log('listening on port 3000');
