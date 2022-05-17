@@ -9,7 +9,7 @@ router.get('/', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-  console.log(req.body);
+  // console.log(req.body);
   const { title, director, year, rating } = req.body;
   if (title && director && year && rating) {
     const newMovie = {id: (movies[movies.length-1].id + 1), ...req.body};
@@ -22,9 +22,9 @@ router.post('/', (req, res) => {
 
 router.delete('/:id', (req, res) => {
   const { id } = req.params;
-  console.log(req.params);
+  // console.log(req.params);
   const index = movies.findIndex(movie => movie.id === Number(id));
-  console.log(`index: ${index}`);
+  // console.log(`index: ${index}`);
   if (index !== -1) {
     movies.splice(index, 1);
     res.send('movie deleted');
